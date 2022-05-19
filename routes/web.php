@@ -13,11 +13,11 @@ Route::get('/product_details', function () {
 
 Route::get('/account', function () {
     return view('account');
-});
+})->name('account');
 
 Route::resource('/products', ProductController::class);
 Route::resource('/users', UserController::class);
-Route::get('/admin_products',[ProductController::class, 'addProduct']);
+Route::get('/admin_products',[ProductController::class, 'addProduct'])->middleware('auth');
 Route::get('/edit_product/{id}', [ProductController::class, 'editProduct']);
 Route::get('/delete_product/{id}', [ProductController::class, 'destroy']);
 Route::put('/update_product/{id}', [ProductController::class, 'update']);

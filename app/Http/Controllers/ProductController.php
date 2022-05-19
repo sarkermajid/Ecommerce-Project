@@ -103,7 +103,7 @@ class ProductController extends Controller
 
 
 
-    public function addProduct(Product $product)
+    public function addProduct()
     {
         $products = Product::all();
         $categorys = Category::all();

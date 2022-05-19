@@ -22,7 +22,9 @@ class UserController extends Controller
         $userInfo = User::where('name','=',$uname)->where('password','=',$pass)->first();
 
         if(isset($userInfo) && $userInfo!=null){
-            return redirect('/admin_products');
+            $product_controller = new ProductController();
+            return $product_controller->addProduct();
+            // return redirect('/admin_products');
         }else{
             return redirect()->back();
         }
