@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\returnSelf;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->Middleware('checkuser')->only('store');
+    }
     /**
      * Display a listing of the resource.
      *

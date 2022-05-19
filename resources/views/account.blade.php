@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-
 <div class="header">
     <div class="container">
         <div class="navbar">
@@ -53,6 +54,11 @@
                     <img src="{{ asset('images/image1.png')}}" width="70%">
                 </div>
                 <div class="col-2">
+                    @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                    @endif
                     <div class="form-container">
                         <div class="form-btn">
                             <span onclick="register()">Register</span>
@@ -73,7 +79,7 @@
                             <input type="email" name="email" placeholder="Email" required>
                             <input type="text" name="mobile" placeholder="Mobile" required>
                             <input type="password" name="pass" placeholder="Password" required>
-                            <button type="submit" class="btn">Register</button>
+                            <button type="submit" name="reg" class="btn">Register</button>
                         </form>
                     </div>
                 </div>
@@ -123,6 +129,11 @@
         <p class="copyright">Copyright 2020 - Samwit Adhikary</p>
     </div>
 </div>
+
+    <!-- javascript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- javascript -->
 
     <script>
