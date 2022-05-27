@@ -24,3 +24,4 @@ Route::put('/update_product/{id}', [ProductController::class, 'update']);
 Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
 Route::get('/cart',[ProductController::class, 'viewCart']);
 Route::get('/remove_item/{id}',[ProductController::class, 'removeItem']);
+Route::post('/product_details/validateAmount', [ProductController::class, 'validateAmount']);
