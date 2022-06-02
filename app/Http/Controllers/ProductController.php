@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -205,7 +206,19 @@ class ProductController extends Controller
     }
 
     public function validateAmount(Request $request){
-        dd($request->all());
+        $id = $request->has('pid') ? $request->get('pid'):'';
+        $product_amount = Product::find($id)->amount;
+
+        if($request->has('qty') && $request->get('qty') > $product_amount){
+            return json_encode([
+                'success' => true,
+                'message' => 'Product quantity must be less than '. $product_amount
+            ]);
+        }else{
+            return json_encode([
+                'success'=> false,
+            ]);
+        }
     }
 
 }

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -65,6 +66,9 @@
 
             </div>
             <div class="col-2">
+            <div id="error_amount">
+
+            </div>
                 <p>{{ $product->category->category_name }}</p>
                 <h1>{{ $product->name }}</h1>
                 <h4>Price : {{ $product->price }}</h4>
@@ -82,7 +86,7 @@
                     <input type="hidden" name="name" value="{{ $product->name }}">
                     <input type="hidden" name="price" value="{{ $product->price }}">
                     <label for="">Quantity</label>
-                    <input name="quantity" type="text" value="1" onchange="validateAmount(this.value, {{ $product->id }} )">
+                    <input name="quantity" type="text" id="qty" value="1" onchange="validateAmount(this.value, {{ $product->id }} )">
                     <button type="submit" class="btn">Add To Cart</button>
                 </form>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
@@ -159,11 +163,14 @@
         </div>
     </div>
 
-    <!-- javascript -->
 
-    
+    <!-- javascript for ajax-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/custom.js"></script>
+
+    <!-- javascript -->
     <script>
         var MenuItems = document.getElementById("MenuItems");
         MenuItems.style.maxHeight = "0px";
