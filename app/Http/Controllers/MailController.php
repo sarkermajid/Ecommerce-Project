@@ -15,7 +15,7 @@ class MailController extends Controller
 
             $details = [
                 'title' => 'Send User Password',
-                'body' => 'Your password is <b>'. $password . '</b>',
+                'body' => 'Your password is '.$password,
             ];
             Mail::to($email)->send(new TestMail($details));
             return json_encode(['success' => true, 'response_code' => 200]);

@@ -59,6 +59,15 @@
                         {{ session()->get('error') }}
                     </div>
                     @endif
+                    @if($errors->any())
+                    <div class="alert alert-warning alert-dismissible fade show">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="form-container">
                         <div class="form-btn">
                             <span onclick="register()">Register</span>
